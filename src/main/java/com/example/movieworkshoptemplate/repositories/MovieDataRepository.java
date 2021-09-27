@@ -1,6 +1,8 @@
 package com.example.movieworkshoptemplate.repositories;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import com.example.movieworkshoptemplate.models.Movie;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,6 +17,7 @@ public class MovieDataRepository {
     }
 
     ArrayList<Movie> movieRepository = new ArrayList<>();
+    ArrayList<Movie> tenPicks = new ArrayList<>();
 
     public void readFile() {
         File f = new File("resources/imdb-data.csv");
@@ -47,7 +50,6 @@ public class MovieDataRepository {
     }
 
     public ArrayList<String> getTenSortByPopularity() {
-        ArrayList<Movie> localHolder = new ArrayList<Movie>();
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
             System.out.println("TEST");
@@ -55,24 +57,29 @@ public class MovieDataRepository {
             Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
             String currentTitle = m.getTitle();
             System.out.println(currentTitle);
-            if (localHolder.contains(m.getTitle())) {
-                while (localHolder.contains(currentTitle)) {
+            if (tenPicks.contains(m)) {
+                while (tenPicks.contains(m)) {
                     m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
                     currentTitle = m.getTitle();
                 }
             } 
             System.out.println(currentTitle);
-            localHolder.add(m);
+            tenPicks.add(m);
         }
-        System.out.println(localHolder);
-        return sortByPopularity(localHolder);
+        ArrayList<String> result = new ArrayList<>();
+        for (Movie movie : sortByPopularity(tenPicks)) {
+            result.add(movie.getTitle());
+        }
+        return result;
     }
 
-    public ArrayList<String> sortByPopularity(ArrayList<Movie> movies) {
-        ArrayList<String> result = new ArrayList<String>();
-
-
-        return result;
+    public ArrayList<Movie> sortByPopularity(ArrayList<Movie> movies) {
+        ArrayList<Movie> sorted = movies;
+        System.out.println("Sorting started");
+        Collections.sort(sorted);
+        
+        System.out.println(sorted);
+        return sorted;
 
     }
 }
