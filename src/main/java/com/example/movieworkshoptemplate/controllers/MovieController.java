@@ -24,7 +24,7 @@ public class MovieController {
     }
 
 
-    @GetMapping("/getRandom")
+    @GetMapping("/getrandom")
     public String random() {
         return service.getRandom();
     }
