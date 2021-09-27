@@ -20,7 +20,7 @@ public class MovieDataRepository {
             }
         } catch (Exception e) {
             System.out.println("Error while reading file");
+
         }
     }
-
 }
