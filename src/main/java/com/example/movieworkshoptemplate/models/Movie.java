@@ -19,9 +19,9 @@ public class Movie {
         this.popularity = popularity;
 
         if ( awards.equals("Yes") ) {
-
+            this.awards = true;
         } else {
-
+            this.awards = false;
         }
     }
 
@@ -71,5 +71,14 @@ public class Movie {
 
     public void setAwards(boolean awards) {
         this.awards = awards;
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + title + ", " 
+        + "Year: " + year + ", " 
+        + "Subject: " + subject + ", " 
+        + "Length: " + length + ", " 
+        + "Popularity: " + popularity + ", ";
     }
 }

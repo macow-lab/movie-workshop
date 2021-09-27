@@ -9,7 +9,7 @@ import com.example.movieworkshoptemplate.models.Movie;
 public class MovieDataRepository {
     // Methods to get data from file
 
-    ArrayList<String> movieRepository = new ArrayList<>();
+    ArrayList<Movie> movieRepository = new ArrayList<>();
 
     public void readFile() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader("resources/imdb-data.csv"))) {
