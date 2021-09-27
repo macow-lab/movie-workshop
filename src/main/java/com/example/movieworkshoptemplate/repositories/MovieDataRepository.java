@@ -82,4 +82,14 @@ public class MovieDataRepository {
         return sorted;
 
     }
+
+    public int countAward() {
+        int awardCount = 0;
+        for (Movie movie: movieRepository) {
+            if (movie.isAwards()) {
+                awardCount++;
+            }
+        }
+        return awardCount;
+    }
 }

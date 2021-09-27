@@ -35,6 +35,11 @@ public class MovieController {
     public String random() {
         return service.getRandom();
     }
+
+    @GetMapping("/howManyWonAnAward")
+    public int awardCount() {
+        return service.countAward();
+    }
 }
 
 

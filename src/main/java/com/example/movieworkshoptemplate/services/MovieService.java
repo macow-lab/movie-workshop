@@ -21,4 +21,8 @@ public class MovieService {
     public ArrayList<String> getTenSortByPopularity() {
         return data.getTenSortByPopularity();
     }
+
+    public int countAward() {
+        return data.countAward();
+    }
 }

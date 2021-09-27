@@ -20,8 +20,9 @@ public class Movie implements Comparable<Movie>{
         this.popularity = popularity;
 
         if ( awards.equals("Yes") ) {
+            this.awards = true;
         } else {
-
+            this.awards = false;
         }
     }
 
