@@ -3,15 +3,21 @@ package com.example.movieworkshoptemplate.repositories;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import com.example.movieworkshoptemplate.models.Movie;
+import java.util.Random;
 
 public class MovieDataRepository {
     // Methods to get data from file
 
+    public MovieDataRepository() {
+        readFile();
+    }
+
     ArrayList<Movie> movieRepository = new ArrayList<>();
 
-    public void readFile() throws IOException {
+    public void readFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader("resources/imdb-data.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -21,17 +27,16 @@ public class MovieDataRepository {
         } catch (Exception e) {
             System.out.println("Error while reading file");
         }
-
     }
 
     public String getFirst() {
-        Movie m ;
-        return "" ;
+        Movie m  = movieRepository.get(0);
+        return m.getTitle();
 
     }
-
     public String getRandom() {
-        return "";
-
+        Random random = new Random ();
+        Movie m  = movieRepository.get(random.nextInt(movieRepository.size()));
+        return m.getTitle();
     }
 }

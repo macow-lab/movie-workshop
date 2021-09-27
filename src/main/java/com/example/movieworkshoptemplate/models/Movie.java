@@ -3,7 +3,6 @@ package com.example.movieworkshoptemplate.models;
 //Movie POJO
 public class Movie {
 
-    //3.2
     int year;
     int length;
     String title;
@@ -19,7 +18,6 @@ public class Movie {
         this.popularity = popularity;
 
         if ( awards.equals("Yes") ) {
-
         } else {
 
         }
