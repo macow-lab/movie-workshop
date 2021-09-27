@@ -12,12 +12,10 @@ public class MovieService {
 
     public String getfirst () {
         return data.getFirst();
-
     }
 
     public String getRandom () {
         return data.getRandom();
-
     }
 
     public ArrayList<String> getTenSortByPopularity() {

@@ -68,8 +68,8 @@ public class MovieDataRepository {
         return sortByPopularity(localHolder);
     }
 
-    public ArrayList<Movie> sortByPopularity(ArrayList<Movie> movies) {
-        ArrayList<Movie> result = new ArrayList<Movie>();
+    public ArrayList<String> sortByPopularity(ArrayList<Movie> movies) {
+        ArrayList<String> result = new ArrayList<String>();
 
 
         return result;
