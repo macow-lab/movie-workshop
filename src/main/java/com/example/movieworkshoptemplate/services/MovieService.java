@@ -18,4 +18,5 @@ public class MovieService {
         return data.getRandom();
 
     }
+
 }
