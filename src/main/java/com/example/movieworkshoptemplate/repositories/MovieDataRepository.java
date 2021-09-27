@@ -45,4 +45,34 @@ public class MovieDataRepository {
         Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
         return m.getTitle();
     }
+
+    public ArrayList<String> getTenSortByPopularity() {
+        ArrayList<Movie> localHolder = new ArrayList<Movie>();
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            System.out.println("TEST");
+
+            Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
+            String currentTitle = m.getTitle();
+            System.out.println(currentTitle);
+            if (localHolder.contains(m.getTitle())) {
+                while (localHolder.contains(currentTitle)) {
+                    m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
+                    currentTitle = m.getTitle();
+                }
+            } 
+            System.out.println(currentTitle);
+            localHolder.add(m);
+        }
+        System.out.println(localHolder);
+        return sortByPopularity(localHolder);
+    }
+
+    public ArrayList<Movie> sortByPopularity(ArrayList<Movie> movies) {
+        ArrayList<Movie> result = new ArrayList<Movie>();
+
+
+        return result;
+
+    }
 }

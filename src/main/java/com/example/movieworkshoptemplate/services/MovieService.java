@@ -2,6 +2,7 @@ package com.example.movieworkshoptemplate.services;
 
 import ch.qos.logback.core.net.server.Client;
 import com.example.movieworkshoptemplate.repositories.MovieDataRepository;
+import java.util.ArrayList;
 
 public class MovieService {
     //Services called from controllers that returns what the client requests
@@ -17,5 +18,9 @@ public class MovieService {
     public String getRandom () {
         return data.getRandom();
 
+    }
+
+    public ArrayList<String> getTenSortByPopularity() {
+        return data.getTenSortByPopularity();
     }
 }
