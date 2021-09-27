@@ -21,5 +21,4 @@ public class MovieDataRepository {
             System.out.println("Error while reading file");
         }
     }
-
 }
