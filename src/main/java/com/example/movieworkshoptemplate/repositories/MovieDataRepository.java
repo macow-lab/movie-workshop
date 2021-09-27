@@ -25,7 +25,7 @@ public class MovieDataRepository {
     }
 
     public String getFirst() {
-        Movie m = movieRepository[0];
+        Movie m ;
         return "" ;
 
     }
