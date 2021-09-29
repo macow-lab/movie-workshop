@@ -37,18 +37,19 @@ public class MovieDataRepository {
         }
         System.out.println("File reading complete!");
     }
-
+    // get first movie
     public String getFirst() {
         Movie m  = movieRepository.get(0);
         return m.getTitle();
 
     }
+    // get random list af movies
     public String getRandom() {
         Random random = new Random();
         Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
         return m.getTitle();
     }
-
+   // sort by poopularity
     public ArrayList<String> getTenSortByPopularity() {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
@@ -72,7 +73,7 @@ public class MovieDataRepository {
         }
         return result;
     }
-
+     //sort by popularity
     public ArrayList<Movie> sortByPopularity(ArrayList<Movie> movies) {
         ArrayList<Movie> sorted = movies;
         System.out.println("Sorting started");
@@ -82,7 +83,7 @@ public class MovieDataRepository {
         return sorted;
 
     }
-
+    //Awardcount
     public int countAward() {
         int awardCount = 0;
         for (Movie movie: movieRepository) {
@@ -91,5 +92,38 @@ public class MovieDataRepository {
             }
         }
         return awardCount;
+    }
+     //Sortering
+    public ArrayList<Movie> sortByChar(String x, int n) {
+        ArrayList<Movie> result = new ArrayList<>();
+        for (Movie movie : movieRepository) {
+            String titleAsChar = movie.getTitle();
+
+            int integer = 0;
+            if (movie.getTitle().contains(x)) {
+                char[] ch = new char[titleAsChar.length()];
+
+
+                for (int i = 0; i < titleAsChar.length(); i++) {
+                    ch[i] = titleAsChar.charAt(i);
+                }
+
+
+                for (char c : ch) {
+
+                    if (String.valueOf(c).toLowerCase().equals(x)) {
+                        integer++;
+
+                    }
+
+                }
+                if (integer == n) {
+                    result.add(movie);
+
+                }
+            }
+        }
+
+        return result;
     }
 }

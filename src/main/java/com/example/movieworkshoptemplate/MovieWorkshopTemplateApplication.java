@@ -9,5 +9,7 @@ public class MovieWorkshopTemplateApplication {
     public static void main(String[] args) {
         SpringApplication.run(MovieWorkshopTemplateApplication.class, args);
     }
-
+    public ArrayList<Movie> sortByChar(String x, int n){
+        return data.sortByChar(x, n);
+    }
 }

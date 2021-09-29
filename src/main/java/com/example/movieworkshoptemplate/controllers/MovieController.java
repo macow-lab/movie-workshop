@@ -40,6 +40,12 @@ public class MovieController {
     public int awardCount() {
         return service.countAward();
     }
+
+
+    @GetMapping("/filter")
+    public ArrayList<Movie> sortByChar(@RequestParam("char") String x,@RequestParam ("amount") String n){
+        return service.sortByChar(x, Integer.parseInt(n));
+    }
 }
 
 
