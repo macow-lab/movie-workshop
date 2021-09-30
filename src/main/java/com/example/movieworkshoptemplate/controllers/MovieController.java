@@ -2,9 +2,11 @@ package com.example.movieworkshoptemplate.controllers;
 
 import java.util.ArrayList;
 
+import com.example.movieworkshoptemplate.models.Movie;
 import com.example.movieworkshoptemplate.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,7 +23,7 @@ public class MovieController {
 
 
     @GetMapping("/getfirst")
-    public String first () {
+    public String first() {
         return service.getfirst();
     }
 
@@ -31,10 +33,12 @@ public class MovieController {
         return service.getTenSortByPopularity();
     }
 
+
     @GetMapping("/getrandom")
     public String random() {
         return service.getRandom();
     }
+
 
     @GetMapping("/howManyWonAnAward")
     public int awardCount() {
@@ -43,7 +47,7 @@ public class MovieController {
 
 
     @GetMapping("/filter")
-    public ArrayList<Movie> sortByChar(@RequestParam("char") String x,@RequestParam ("amount") String n){
+    public ArrayList<Movie> sortByChar(@RequestParam("char") String x, @RequestParam("amount") String n) {
         return service.sortByChar(x, Integer.parseInt(n));
     }
 }

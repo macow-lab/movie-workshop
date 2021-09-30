@@ -1,9 +1,8 @@
 package com.example.movieworkshoptemplate.models;
-
 import java.util.Comparator;
 
 //Movie POJO
-public class Movie implements Comparable<Movie>{
+public class Movie implements Comparable<Movie> {
 
     int year;
     int length;
@@ -18,12 +17,7 @@ public class Movie implements Comparable<Movie>{
         this.title = title;
         this.subject = subject;
         this.popularity = popularity;
-
-        if ( awards.equals("Yes") ) {
-            this.awards = true;
-        } else {
-            this.awards = false;
-        }
+        this.awards = awards.equals("Yes");
     }
 
     public int getYear() {

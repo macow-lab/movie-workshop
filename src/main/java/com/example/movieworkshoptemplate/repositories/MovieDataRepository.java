@@ -3,7 +3,9 @@ package com.example.movieworkshoptemplate.repositories;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
 import com.example.movieworkshoptemplate.models.Movie;
+
 import java.util.Random;
 import java.util.Scanner;
 import java.io.File;
@@ -25,7 +27,7 @@ public class MovieDataRepository {
         try {
             sc = new Scanner(f);
             while (sc.hasNextLine()) {
-                if(movieRepository.size() == 0) {
+                if (movieRepository.size() == 0) {
                     sc.nextLine();
                 }
                 String line = sc.nextLine();
@@ -37,33 +39,36 @@ public class MovieDataRepository {
         }
         System.out.println("File reading complete!");
     }
+
     // get first movie
     public String getFirst() {
-        Movie m  = movieRepository.get(0);
+        Movie m = movieRepository.get(0);
         return m.getTitle();
 
     }
+
     // get random list af movies
     public String getRandom() {
         Random random = new Random();
-        Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
+        Movie m = movieRepository.get(random.nextInt(movieRepository.size() - 1));
         return m.getTitle();
     }
-   // sort by poopularity
+
+    // sort by poopularity
     public ArrayList<String> getTenSortByPopularity() {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
             System.out.println("TEST");
 
-            Movie m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
+            Movie m = movieRepository.get(random.nextInt(movieRepository.size() - 1));
             String currentTitle = m.getTitle();
             System.out.println(currentTitle);
             if (tenPicks.contains(m)) {
                 while (tenPicks.contains(m)) {
-                    m  = movieRepository.get(random.nextInt(movieRepository.size() -  1));
+                    m = movieRepository.get(random.nextInt(movieRepository.size() - 1));
                     currentTitle = m.getTitle();
                 }
-            } 
+            }
             System.out.println(currentTitle);
             tenPicks.add(m);
         }
@@ -73,27 +78,30 @@ public class MovieDataRepository {
         }
         return result;
     }
-     //sort by popularity
+
+    //sort by popularity
     public ArrayList<Movie> sortByPopularity(ArrayList<Movie> movies) {
         ArrayList<Movie> sorted = movies;
         System.out.println("Sorting started");
         Collections.sort(sorted);
-        
+
         System.out.println(sorted);
         return sorted;
 
     }
+
     //Awardcount
     public int countAward() {
         int awardCount = 0;
-        for (Movie movie: movieRepository) {
+        for (Movie movie : movieRepository) {
             if (movie.isAwards()) {
                 awardCount++;
             }
         }
         return awardCount;
     }
-     //Sortering
+
+    //Sortering
     public ArrayList<Movie> sortByChar(String x, int n) {
         ArrayList<Movie> result = new ArrayList<>();
         for (Movie movie : movieRepository) {
